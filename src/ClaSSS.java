@@ -15,9 +15,7 @@ public class ClaSSS {
         System.out.print("enter mark ");
         double mark = Double.parseDouble(scn.nextLine());
 
-        Student student = new Student(ID, name, mark);
-
-        return student;
+        return new Student(ID, name, mark);
     }
 
 
@@ -37,8 +35,15 @@ public class ClaSSS {
     }
 
 
-    public void addStudent(Student student){
-        studentList.add(student);
+    public void addStudent(){
+        System.out.println("nhap so hoc sinh");
+        int size = Integer.parseInt(scn.nextLine());
+
+        for(int i = 0; i < size; i++){
+            Student ele = this.inputStudent();
+            studentList.add(ele);
+        }
+
     }
 
 
@@ -53,7 +58,6 @@ public class ClaSSS {
         System.out.println("enter an ID");
         int ID = Integer.parseInt(scn.nextLine());
 
-        int index = 0;
         for(Student student : studentList){
             if (student.getID() == ID){
                 return studentList.indexOf(student);
@@ -66,6 +70,21 @@ public class ClaSSS {
     public void showAll (){
         for(Student student : studentList){
             System.out.println(student); // have got toString
+        }
+    }
+//studentList.get(j).getID() < studentList.get(j-1).getID()
+    public void sortByName (){
+        Student current;
+        for (int i = 0; i < studentList.size(); i++){
+            for (int j = studentList.size() - 1; j > i; j--){
+                if(studentList.get(j).getName().compareTo(studentList.get(j-1).getName()) < 0 ){
+//                    swap(studentList.get(j), studentList.get(j - 1));
+                    current = studentList.get(j);
+                    studentList.set(j, studentList.get(j - 1));
+                    studentList.set(j - 1, current);
+                }
+        }
+
         }
     }
 
