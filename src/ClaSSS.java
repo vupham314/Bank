@@ -4,7 +4,6 @@ public class ClaSSS {
     Scanner scn = new Scanner(System.in);
     ArrayList<Student> studentList = new ArrayList<Student>();
 
-
     public Student inputStudent (){
         System.out.print("enter ID ");
         int ID = Integer.parseInt(scn.nextLine());

@@ -3,6 +3,8 @@ public class Student {
     private String name;
     private double mark;
 
+    static int a = 10;
+
     Student (){
         //overloading
     }
@@ -13,10 +15,9 @@ public class Student {
         this.mark = mark;
     }
 
-
-    public int getID() {
-        return ID;
-    }
+    public static int getID() {
+        a = 11;
+        return a; }
 
     public void setID(int ID) {
         this.ID = ID;
